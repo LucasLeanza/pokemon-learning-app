@@ -53,9 +53,27 @@
   filter: brightness(0) saturate(100%);
 }
 
-/* Cuando está en modo oscuro */
+/* ============================================
+   MODO OSCURO - ULTRA BALL THEME
+   ============================================ */
+
+body.dark-mode .toggle-track {
+  background: linear-gradient(135deg, #F4C430 0%, #FFD700 50%, #FFA500 100%);
+  box-shadow: 0 4px 12px rgba(244, 196, 48, 0.4);
+}
+
+body.dark-mode .theme-toggle:hover .toggle-track {
+  box-shadow: 0 6px 16px rgba(244, 196, 48, 0.6);
+}
+
 body.dark-mode .toggle-thumb {
   left: 30px;
+  background: #1A1A1A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .theme-icon {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(50%) saturate(500%) hue-rotate(10deg);
 }
 
 /* Animación al hacer hover */

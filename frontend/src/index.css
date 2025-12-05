@@ -21,18 +21,24 @@ html {
   scroll-behavior: smooth;
 }
 
-/*Mejorar la apariencia de los scrollbars*/
+/*Mejorar la apariencia de los scrollbars - Master Ball theme (Modo Claro)*/
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F5F0FF;
+  border-left: 1px solid #E8DCFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: linear-gradient(180deg, #8B5FC7 0%, #663399 50%, #552288 100%);
   border-radius: 5px;
+  border: 1px solid #552288;
+  box-shadow: 0 0 10px rgba(102, 51, 153, 0.3);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: linear-gradient(180deg, #A77FDB 0%, #8B5FC7 50%, #663399 100%);
+  box-shadow: 0 0 15px rgba(102, 51, 153, 0.5);
 }

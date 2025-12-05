@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from './components/SearchBar'
 import PokemonProfile from './components/PokemonProfile'
 import ThemeToggle from "./components/ThemeToggle";
@@ -21,6 +21,29 @@ function App() {
 
   //Pokemon actualmente seleccionado (null al inicio)
   const [selectedPokemon, setSelectedPokemon] = useState(null)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  // ============================================
+  // EFECTOS
+  // ============================================
+
+  useEffect(() => {
+    // Verificar tema inicial
+    const checkTheme = () => {
+      setIsDarkMode(document.body.classList.contains('dark-mode'))
+    }
+
+    checkTheme()
+
+    // Observer para detectar cambios en la clase del body
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   // ============================================
   // MANEJADORES
@@ -51,6 +74,10 @@ function App() {
   // RENDERIZADO
   // ============================================
 
+  const pokeballImage = isDarkMode
+    ? "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/f/f3/latest/20210504000522/Ultra_Ball_GO.png/60px-Ultra_Ball_GO.png"
+    : "https://images.wikidexcdn.net/mwuploads/wikidex/b/b7/latest/20241009141717/Master_Ball_GO.png"
+
   return (
     <div className="app">
       {/*BOTON DE TEMA*/}
@@ -61,7 +88,7 @@ function App() {
         <div className="header-content">
           <h1 className="app-title">
             <img
-              src="https://images.wikidexcdn.net/mwuploads/wikidex/b/b7/latest/20241009141717/Master_Ball_GO.png"
+              src={pokeballImage}
               alt="Pokeball"
               className="pokeball-icon"
             />
