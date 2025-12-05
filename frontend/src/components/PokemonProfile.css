@@ -1,0 +1,437 @@
+/* 
+============================================
+ESTADO VACIO
+============================================ 
+*/
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 32px;
+  text-align: center;
+  min-height: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.empty-icon {
+  font-size: 100px;
+  margin-bottom: 24px;
+  opacity: 0.6;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.empty-state h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  font-size: 18px;
+  color: #666;
+  max-width: 450px;
+  line-height: 1.6;
+}
+
+/* 
+============================================
+CONTENEDOR DEL PERFIL
+============================================ 
+*/
+.pokemon-profile {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 
+============================================
+ENCABEZADO DEL POKEMON
+============================================ 
+*/
+.pokemon-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.pokemon-image {
+  width: 160px;
+  height: 160px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
+  position: relative;
+  z-index: 1;
+}
+
+.pokemon-title {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.pokemon-name {
+  font-size: 56px;
+  font-weight: 800;
+  color: #333;
+  margin: 0 0 8px 0;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: -1px;
+}
+
+.pokemon-number {
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* 
+============================================
+SECCIONES
+============================================ 
+*/
+.pokemon-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 
+============================================
+BADGES DE TIPOS
+============================================ 
+*/
+.type-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.type-badge {
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3 ease;
+  cursor: default;
+}
+
+.type-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.type-small {
+  padding: 8px 16px;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+
+.type-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.type-icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+/* 
+============================================
+SECCION DE EFECTIVIDAD
+============================================ 
+*/
+
+.effectiveness-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 32px;
+  border-radius: 24px;
+  margin: 32px 0;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.effectiveness-group {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.effectiveness-group:hover {
+  transform: translateY(-2px);
+}
+
+.effectiveness-group:last-child {
+  margin-bottom: 0;
+}
+
+.effectiveness-description {
+  color: #666;
+  font-size: 14px;
+  margin: 8px 0 12px 0;
+  font-weight: 500;
+}
+
+.strong-title {
+  color: #27ae60;
+}
+
+.weak-title {
+  color: #e74c3c;
+}
+
+.resistant-title {
+  color: #3498db;
+}
+
+.immune-title {
+  color: #9b59b6;
+}
+
+.type-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.no-types {
+  color: #999;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 
+============================================
+ESTADISTICAS
+============================================ 
+*/
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.stat-name {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+============================================
+INFORMACION FÍSICA
+============================================ 
+*/
+.physical-info {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-label {
+  font-weight: 700;
+  color: #666;
+  font-size: 16px;
+}
+
+.info-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 
+============================================
+RESPONSIVE
+============================================ 
+*/
+@media (max-width: 768px) {
+  .pokemon-profile {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .pokemon-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .pokemon-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pokemon-name {
+    font-size: 40px;
+  }
+
+  .pokemon-number {
+    font-size: 22px;
+  }
+
+  .effectiveness-section {
+    padding: 24px;
+  }
+
+  .effectiveness-group {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .physical-info {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pokemon-profile {
+    padding: 20px;
+  }
+
+  .pokemon-name {
+    font-size: 32px;
+  }
+
+  .pokemon-number {
+    font-size: 18px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .type-badge {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  .empty-state {
+    padding: 60px 20px;
+  }
+
+  .empty-icon {
+    font-size: 80px;
+  }
+
+  .empty-state h2 {
+    font-size: 24px;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+  }
+}
