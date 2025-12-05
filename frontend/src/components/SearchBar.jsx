@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { searchPokemon, getPokemonDetails } from '../services/pokemonService'
+import LoadingSpinner from './LoadingSpinner'
 import './SearchBar.css'
 
 /**
@@ -152,7 +153,7 @@ function SearchBar({ onSelectPokemon }) {
         {/*Indicador de carga*/}
         {isLoading && (
           <div className="search-loading">
-            🔄
+            <LoadingSpinner size="medium" />
           </div>
         )}
       </div>

@@ -55,17 +55,9 @@ INDICADOR DE CARGA
   right: 24px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 24px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: translateY(-50%) rotate(0deg);
-  }
-  to {
-    transform: translateY(-50%) rotate(360deg);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 

@@ -57,6 +57,11 @@ api.interceptors.response.use(
  */
 export const searchPokemon = async (query) => {
   try {
+    // Delay de 3 segundos en desarrollo para testear loading
+    if (!import.meta.env.PROD) {
+      await new Promise(resolve => setTimeout(resolve, 3000))
+    }
+
     const response = await api.get('/pokemon/search', {
       params: { query }
     })
@@ -74,6 +79,11 @@ export const searchPokemon = async (query) => {
  */
 export const getPokemonDetails = async (name) => {
   try {
+    // Delay de 3 segundos en desarrollo para testear loading
+    if (!import.meta.env.PROD) {
+      await new Promise(resolve => setTimeout(resolve, 3000))
+    }
+
     const response = await api.get(`/pokemon/${name}`)
     return response.data
   } catch (error) {
@@ -91,6 +101,11 @@ export const getPokemonDetails = async (name) => {
  */
 export const getRandomPokemon = async () => {
   try {
+    // Delay de 3 segundos en desarrollo para testear loading
+    if (!import.meta.env.PROD) {
+      await new Promise(resolve => setTimeout(resolve, 3000))
+    }
+
     const response = await api.get('/pokemon/random')
     return response.data
   } catch (error) {
