@@ -9,7 +9,7 @@ import axios from 'axios'
 // })
 
 const baseURL = import.meta.env.PROD
-  ? 'https://pokemon-learning-app.onrender.com'
+  ? 'https://pokemon-learning-app.onrender.com/api'
   : '/api'
 
   const api = axios.create({
