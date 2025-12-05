@@ -1,0 +1,252 @@
+/* ============================================
+   SECCIÓN DE EVOLUCIONES
+   ============================================ */
+
+.evolution-section {
+  margin: 32px 0;
+}
+
+.no-evolutions {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+/* ============================================
+   CADENA EVOLUTIVA
+   ============================================ */
+
+.evolution-chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  position: relative;
+}
+
+/* ============================================
+   TARJETA DE POKÉMON EN LA CADENA
+   ============================================ */
+
+.evolution-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 140px;
+}
+
+.evolution-card.clickable {
+  cursor: pointer;
+}
+
+.evolution-card.clickable:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.evolution-card.current {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.evolution-card.current .evolution-number,
+.evolution-card.current .evolution-name {
+  color: white;
+}
+
+/* Badge "Actual" */
+.current-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffcb05;
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   SPRITE Y DATOS
+   ============================================ */
+
+.evolution-sprite {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  margin-bottom: 8px;
+}
+
+.evolution-number {
+  font-size: 12px;
+  color: #999;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.evolution-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* ============================================
+   FLECHA DE EVOLUCIÓN
+   ============================================ */
+
+.evolution-arrow {
+  font-size: 32px;
+  color: #667eea;
+  font-weight: bold;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ETAPAS EVOLUTIVAS
+   ============================================ */
+
+.evolution-stage {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.evolution-stage-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.evolution-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================
+   MÉTODO DE EVOLUCIÓN
+   ============================================ */
+
+.evolution-method {
+  font-size: 12px;
+  color: #666;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   BADGE DE EVOLUCIÓN FINAL
+   ============================================ */
+
+.final-evolution-badge {
+  position: absolute;
+  bottom: -16px;
+  right: 20px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+/* ============================================
+   MODO OSCURO
+   ============================================ */
+
+body.dark-mode .evolution-chain {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+}
+
+body.dark-mode .evolution-card {
+  background: var(--bg-secondary);
+}
+
+body.dark-mode .evolution-card.current {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark-mode .evolution-name {
+  color: var(--text-primary);
+}
+
+body.dark-mode .evolution-method {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+
+body.dark-mode .no-evolutions {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .evolution-chain {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .evolution-arrow {
+    transform: rotate(90deg);
+    font-size: 24px;
+  }
+
+  .evolution-card {
+    min-width: 120px;
+  }
+
+  .evolution-sprite {
+    width: 64px;
+    height: 64px;
+  }
+
+  .final-evolution-badge {
+    position: static;
+    margin-top: 16px;
+  }
+}

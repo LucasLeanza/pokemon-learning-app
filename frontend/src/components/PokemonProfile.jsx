@@ -1,3 +1,4 @@
+import EvolutionChain from './EvolutionChain'
 import './PokemonProfile.css'
 
 /**
@@ -7,7 +8,7 @@ import './PokemonProfile.css'
  * - pokemon: objeto con todos los datos del pokémon
  */
 
-function PokemonProfile({ pokemon }) {
+function PokemonProfile({ pokemon, onSelectPokemon }) {
   //Si no hay pokemon seleccionado, mostrar mensaje
   if (!pokemon) {
     return (
@@ -217,6 +218,15 @@ function PokemonProfile({ pokemon }) {
           </div>
         </div>
       </div>
+
+      {/* CADENA EVOLUTIVA */}
+      {pokemon.evolutions && (
+        <EvolutionChain 
+          evolutions={pokemon.evolutions}
+          currentPokemon={pokemon}
+          onSelectPokemon={onSelectPokemon}
+        />
+      )}
 
       {/*INFO FÍSICA*/}
       <div className="pokemon-section">

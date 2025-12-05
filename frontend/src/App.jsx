@@ -1,8 +1,9 @@
 import { useState } from "react";
 import SearchBar from './components/SearchBar'
 import PokemonProfile from './components/PokemonProfile'
-import './App.css'
 import ThemeToggle from "./components/ThemeToggle";
+import { getPokemonDetails } from "./services/pokemonService";
+import './App.css'
 
 /**
  * Componente principal de la aplicación
@@ -34,6 +35,17 @@ function App() {
     console.log('Pokémon seleccionado:', pokemon)
     setSelectedPokemon(pokemon)
   }
+
+  const handleSelectPokemonByName = async (pokemonName) => {
+    try {
+      const pokemon = await getPokemonDetails(pokemonName);
+      setSelectedPokemon(pokemon);
+      // Scroll suave hacia arriba
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error('Error cargando pokémon:', error);
+    }
+  };
 
   // ============================================
   // RENDERIZADO
@@ -70,7 +82,7 @@ function App() {
 
         {/*PERFIL DEL POKEMON*/}
         <div className="profile-section">
-          <PokemonProfile pokemon={selectedPokemon}/>
+          <PokemonProfile pokemon={selectedPokemon} onSelectPokemon={handleSelectPokemonByName}/>
         </div>
       </main>
 

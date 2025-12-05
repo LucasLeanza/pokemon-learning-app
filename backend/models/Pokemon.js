@@ -79,7 +79,26 @@ const pokemonSchema = new mongoose.Schema({
   immuneTo: {
     type: [String],
     default: []
+  },
+  //Información de evoluciones
+  evolutions: {
+    //Cadena evolutiva completa: array de etapas, cada etapa es un array de pokémon
+    fullChain: [[{
+      name: { type: String },
+      pokedexNumber: { type: Number },
+      sprite: { type: String },
+      level: { type: Number, default: null },
+      method: { type: String, default: 'level' },
+      isCurrentPokemon: { type: Boolean, default: false }
+    }]],
+
+    //Etapa actual del pokémon (1, 2, 3, etc.)
+    currentStage: { type: Number, default: 1 },
+
+    //Es una evolución final?
+    isFinal: { type: Boolean, default: false }
   }
+
 }, {
   //Opciones del schema
   timestamps: true, //Agrega automaticamente createdAt y updatedAt

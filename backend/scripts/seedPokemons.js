@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const Pokemon = require('../models/Pokemon')
 const { calculateTypeRelations } = require('../utils/typeEffectiveness')
+const { getEvolutionChain } = require('../utils/evolutionChain')
 
 // ============================================
 // CONSTANTES
@@ -107,6 +108,12 @@ async function fetchPokemonData(id) {
     const typeRelations = calculateTypeRelations(types);
 
     // ============================================
+    // OBTENER CADENA EVOLUTIVA
+    // ============================================
+
+    const evolutions = await getEvolutionChain(id)
+
+    // ============================================
     // CONSTRUIR OBJETO DEL POKÉMON
     // ============================================
 
@@ -124,7 +131,9 @@ async function fetchPokemonData(id) {
       strongAgainst: typeRelations.strongAgainst,
       weakAgainst: typeRelations.weakAgainst,
       resistantTo: typeRelations.resistantTo,
-      immuneTo: typeRelations.immuneTo
+      immuneTo: typeRelations.immuneTo,
+
+      evolutions: evolutions || { fullChain: [], currentStage: 1, isFinal: false }
     }
 
     console.log(`✅ Datos obtenidos: ${data.name.toUpperCase()}`)
